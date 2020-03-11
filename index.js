@@ -1,14 +1,6 @@
 module.exports = {
   parserOptions: {
-    // es2015
-    ecmaVersion: 6,
-    ecmaFeatures: {
-      // https://github.com/tc39/proposal-object-rest-spread
-      // rest and spread usage
-      experimentalObjectRestSpread: true,
-      // render html
-      jsx: true
-    },
+    ecmaVersion: 2018,
     parser: 'babel-eslint',
     sourceType: 'module'
   },
@@ -30,6 +22,8 @@ module.exports = {
   },
 
   rules: {
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     // 强制 getter 和 setter 在对象中成对出现
     'accessor-pairs': 2,
     // 强制箭头函数的箭头前后使用一致的空格
@@ -248,7 +242,6 @@ module.exports = {
     'yoda': [2, 'never'],
     // 要求使用 const 声明那些声明后不再被修改的变量
     'prefer-const': 2,
-    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     'object-curly-spacing': [2, 'always', { objectsInObjects: false }],
     'vue/jsx-uses-vars': 2
   }
